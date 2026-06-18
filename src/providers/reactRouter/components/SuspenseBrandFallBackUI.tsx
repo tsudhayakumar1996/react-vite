@@ -4,7 +4,7 @@ import { BrandLogoAsLoader } from '@/commonComponents/components/BrandLogoAsLoad
 import type { ChildProp } from '@/commonType/childType'
 
 const SuspenseBrandFallBackUI = ({ children }: ChildProp) => {
-   return <Suspense fallback={<BrandLogoAsLoader />}>{children}</Suspense>
+  return <Suspense fallback={<BrandLogoAsLoader />}>{children}</Suspense>
 }
 
 export default SuspenseBrandFallBackUI

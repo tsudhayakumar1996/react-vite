@@ -3,6 +3,6 @@
  * Centralizing path names helps in maintaining consistency and avoiding hard-coded strings throughout the codebase.
  */
 export const PATH_NAMES = {
-   HOME: '/',
-   LOGIN: '/login'
+  HOME: '/',
+  LOGIN: '/login'
 }

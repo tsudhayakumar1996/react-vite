@@ -5,14 +5,14 @@ import { getFcmTkn } from '@/commonHlpr/fcm'
 import { LANGUAGE } from '@/language'
 
 const Home = () => {
-   // effect
-   useEffect(() => {
-      getFcmTkn()
-         .then((t) => console.log(t))
-         .catch((e) => errHndlrCb(e, LANGUAGE.fcmTokenFetch))
-   }, [])
+  // effect
+  useEffect(() => {
+    getFcmTkn()
+      .then((t) => console.log(t))
+      .catch((e) => errHndlrCb(e, LANGUAGE.fcmTokenFetch))
+  }, [])
 
-   return <>Home page is here to check....</>
+  return <>Home page is here to check....</>
 }
 
 export default Home

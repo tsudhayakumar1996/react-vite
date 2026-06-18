@@ -6,19 +6,19 @@ import { ErrorBoundary, Home, Login } from '@/providers/reactRouter/components/R
 import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
 
 export const router = createBrowserRouter([
-   {
-      path: PATH_NAMES.HOME,
-      element: <Layout />,
-      errorElement: <ErrorBoundary />,
-      children: [
-         {
-            index: true,
-            element: <Home />
-         },
-         {
-            path: PATH_NAMES.LOGIN,
-            element: <Login />
-         }
-      ]
-   }
+  {
+    path: PATH_NAMES.HOME,
+    element: <Layout />,
+    errorElement: <ErrorBoundary />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: PATH_NAMES.LOGIN,
+        element: <Login />
+      }
+    ]
+  }
 ])

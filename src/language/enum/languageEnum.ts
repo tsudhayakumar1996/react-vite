@@ -1,6 +1,6 @@
 export enum LanguageEnums {
-   ENGLISH,
-   TAMIL
+  ENGLISH,
+  TAMIL
 }
 
 export type ENGLISH = 'English'

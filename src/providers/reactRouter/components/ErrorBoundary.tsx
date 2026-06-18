@@ -1,5 +1,5 @@
 const ErrorBoundary = () => {
-   return <>An error occured</>
+  return <>An error occured</>
 }
 
 export default ErrorBoundary
