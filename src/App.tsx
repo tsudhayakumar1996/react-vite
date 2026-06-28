@@ -1,3 +1,4 @@
+import OAuthProvider from '@/providers/oAuth'
 import { ReactQueryClientProvider } from '@/providers/reactQuery'
 import { ReactRouterProvider } from '@/providers/reactRouter'
 import SnackBarProvider from '@/providers/snackbar'
@@ -7,7 +8,9 @@ const App = () => {
   return (
     <ReactQueryClientProvider>
       <MuiThemeProvider>
-        <ReactRouterProvider />
+        <OAuthProvider>
+          <ReactRouterProvider />
+        </OAuthProvider>
         <SnackBarProvider />
       </MuiThemeProvider>
     </ReactQueryClientProvider>
