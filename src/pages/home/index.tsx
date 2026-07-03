@@ -1,36 +1,23 @@
-import { useEffect } from 'react'
-
-import { AUTH_API_ROUTE, GET_TKN_FRM_CODE_API_ROUTE } from '@/commonConst/apiRoutes/auth'
-import { errHndlrCb } from '@/commonHlpr/error'
-import { getFcmTkn } from '@/commonHlpr/fcm'
-import { connectServerPost } from '@/commonHlpr/fetch'
-import { LANGUAGE } from '@/language'
-import { Button } from '@mui/material'
-import { useGoogleLogin } from '@react-oauth/google'
-import { useMutation } from '@tanstack/react-query'
+import { Button, Typography } from '@mui/material'
+import { useQuery } from '@tanstack/react-query'
+import { useNavigate } from 'react-router'
 
 const Home = () => {
-  // effect
-  useEffect(() => {
-    getFcmTkn()
-      .then((t) => console.log(t))
-      .catch((e) => errHndlrCb(e, LANGUAGE.fcmTokenFetch))
-  }, [])
-
-  const login = useGoogleLogin({
-    flow: 'auth-code',
-    onSuccess: (tR) => mutation.mutate({ code: tR.code })
+  // hook
+  const { data } = useQuery({
+    queryKey: ['InitialData'],
+    queryFn: () => ({
+      name: 'udhay'
+    })
   })
 
-  const mutation = useMutation({
-    mutationFn: (payload: { code: string }) =>
-      connectServerPost(AUTH_API_ROUTE + GET_TKN_FRM_CODE_API_ROUTE, { code: payload.code }),
-    onSuccess: (r) => console.log(r, 'response')
-  })
+  // hook
+  const navigate = useNavigate()
 
   return (
     <>
-      <Button onClick={() => login()}>Login With Google</Button>
+      <Typography variant="h4">{data && data.name} version 6</Typography>
+      <Button onClick={() => navigate('/login')}>Login</Button>
     </>
   )
 }

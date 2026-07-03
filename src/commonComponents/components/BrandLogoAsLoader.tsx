@@ -10,7 +10,7 @@ export const BrandLogoAsLoader = () => {
     >
       <Box
         component="img"
-        src="img/vite.svg"
+        src="/favicon.svg"
         alt="Brand Logo"
         sx={{ opacity: 0.1, width: 250 }}
       />

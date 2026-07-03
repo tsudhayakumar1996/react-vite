@@ -1,4 +1,5 @@
 ENV=$1
+BACKEND_PATH="../express-server"
 
 # Check if environment is provided
 if [ -z "$ENV" ]; then
@@ -13,9 +14,6 @@ case $ENV in
   dev)
     npm run build-dev
     ;;
-  test)
-    npm run build-test
-    ;;
   live)
     npm run build-live
     ;;
@@ -24,3 +22,11 @@ case $ENV in
     exit 1
     ;;
 esac
+
+echo "🧹 Removing old dist directory..."
+rm -rf "$BACKEND_PATH/public/"
+
+echo "📁 Copying React build..."
+cp -R "dist/." "$BACKEND_PATH/public/"
+
+echo "All set"
