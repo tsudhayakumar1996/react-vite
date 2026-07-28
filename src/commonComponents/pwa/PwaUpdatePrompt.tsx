@@ -1,4 +1,4 @@
-import setupPWAUpdate from '@/commonComponents/helpers/setupPWAUpdate'
+import setupPWAUpdate from '@/commonComponents/pwa/helpers/setupPWAUpdate'
 import { useEffect, useRef, useState } from 'react'
 
 export const PwaUpdatePrompt = () => {

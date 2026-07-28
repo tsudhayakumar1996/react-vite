@@ -1,6 +1,6 @@
 // import { useEffect } from 'react'
 
-import { AUTH_API_ROUTE, GET_TKN_FRM_CODE_API_ROUTE } from '@/commonConst/apiRoutes/auth'
+import { AUTH_API_ROUTE, GET_TKN_FRM_CODE_API_ROUTE } from '@/commonConst/apiRoutes'
 // import { errHndlrCb } from '@/commonHlpr/error'
 // import { getFcmTkn } from '@/commonHlpr/fcm'
 import { connectServerPost } from '@/commonHlpr/fetch'

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 
 import Layout from '@/providers/reactRouter/components/layout'
+
 // pages
 import { ErrorBoundary, Home, Login } from '@/providers/reactRouter/components/RouteComponents'
 import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'

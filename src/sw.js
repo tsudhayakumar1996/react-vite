@@ -24,31 +24,6 @@ const messaging = getMessaging(firebaseApp)
 
 onBackgroundMessage(messaging, (payload) => { })
 
-// registerRoute(
-//    new NavigationRoute(
-//       new NetworkFirst({
-//          cacheName: 'pages-cache',
-//          networkTimeoutSeconds: 3,
-//          plugins: [new ExpirationPlugin({ maxEntries: 50, maxAgeSeconds: 60 * 60 * 24 * 7 })],
-//       })
-//    )
-// )
-
-// registerRoute(
-//    ({ request }) => request.destination === 'image',
-//    new StaleWhileRevalidate({ cacheName: 'images-cache' })
-// )
-
-// registerRoute(
-//    ({ request }) => request.destination === 'script' || request.destination === 'style',
-//    new StaleWhileRevalidate({
-//       cacheName: 'assets-cache',
-//       plugins: [
-//          new ExpirationPlugin({ maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 }),
-//       ],
-//    })
-// )
-
 // wait for the app to explicitly tell us to activate the new SW
 self.addEventListener('message', (event) => {
    if (event.data?.type === 'SKIP_WAITING') {

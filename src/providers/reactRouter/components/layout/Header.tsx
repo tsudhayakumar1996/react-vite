@@ -1,6 +1,6 @@
-import { PwaUpdatePrompt } from '@/commonComponents/components/PwaUpdatePrompt'
+import Notification from '@/commonComponents/notification'
+import { PwaUpdatePrompt } from '@/commonComponents/pwa/PwaUpdatePrompt'
 import useGetHeaderLogics from '@/providers/reactRouter/components/layout/hooks/useGetHeaderLogics'
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined'
 import { AppBar, Box, IconButton } from '@mui/material'
 
@@ -23,9 +23,10 @@ const Header = () => {
           <IconButton>
             <WidgetsOutlinedIcon />
           </IconButton>
-          <IconButton>
+          {/* <IconButton>
             <NotificationsNoneOutlinedIcon />
-          </IconButton>
+          </IconButton> */}
+          <Notification />
           <PwaUpdatePrompt />
         </Box>
       </AppBar>

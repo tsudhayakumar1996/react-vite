@@ -1,0 +1,24 @@
+import { messaging } from '@/firebase/config'
+import { onMessage } from 'firebase/messaging'
+import { useEffect } from 'react'
+
+export function subscribeToForegroundMessages(callback: Parameters<typeof onMessage>[1]) {
+  return onMessage(messaging, callback)
+}
+
+/**
+ * register the cb for listen the foreground fcm events
+ */
+const useSubscribeForeGroundMessage = (cb: () => void) => {
+  // effect
+  useEffect(() => {
+    const unsubscribe = subscribeToForegroundMessages((payload) => {
+      cb()
+      alert(JSON.stringify(payload))
+    })
+    return unsubscribe
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+}
+
+export default useSubscribeForeGroundMessage
