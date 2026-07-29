@@ -11,5 +11,5 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID
 }
 
-export const app = initializeApp(firebaseConfig)
-export const messaging = getMessaging(app)
+export const firebaseApp = initializeApp(firebaseConfig)
+export const messaging = getMessaging(firebaseApp)

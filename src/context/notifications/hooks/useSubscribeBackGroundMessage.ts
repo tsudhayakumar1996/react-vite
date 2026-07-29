@@ -21,8 +21,7 @@ const useSubscribeBackGroundMessage = (cb: () => void) => {
     return () => {
       navigator.serviceWorker.removeEventListener('message', handleMessage)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [cb])
 }
 
 export default useSubscribeBackGroundMessage

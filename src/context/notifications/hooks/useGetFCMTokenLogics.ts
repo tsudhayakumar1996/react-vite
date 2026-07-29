@@ -8,18 +8,18 @@ const useGetFCMTokenLogics = () => {
       throw new Error('Service workers are not supported in this environment.')
     }
 
-    const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js', {
-      scope: '/'
-    })
+    const registration = await navigator.serviceWorker.ready
 
-    if (registration.active) return registration
+    // if (registration.active) return registration
 
-    return new Promise<ServiceWorkerRegistration>((resolve) => {
-      const worker = registration.installing || registration.waiting
-      worker?.addEventListener('statechange', () => {
-        if (worker.state === 'activated') resolve(registration)
-      })
-    })
+    // return new Promise<ServiceWorkerRegistration>((resolve) => {
+    //   const worker = registration.installing || registration.waiting
+    //   worker?.addEventListener('statechange', () => {
+    //     if (worker.state === 'activated') resolve(registration)
+    //   })
+    // })
+
+    return registration
   }
 
   const getFcmToken = async () => {

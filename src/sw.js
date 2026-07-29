@@ -1,21 +1,18 @@
 import { initializeApp } from 'firebase/app'
 import { getMessaging, onBackgroundMessage } from 'firebase/messaging/sw'
 import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
-// import { ExpirationPlugin } from 'workbox-expiration'
-// import { NavigationRoute, registerRoute } from 'workbox-routing'
-// import { NetworkFirst, StaleWhileRevalidate } from 'workbox-strategies'
 
 precacheAndRoute(self.__WB_MANIFEST)
 cleanupOutdatedCaches()
 
 // fcm
 const fireBaseConfig = {
-   apiKey: 'AIzaSyBJ054XPFFBICR8vc5LlHGL_B8a3ftWDG8',
-   authDomain: 'maaapalm-98b5b.firebaseapp.com',
-   projectId: 'maaapalm-98b5b',
-   storageBucket: 'maaapalm-98b5b.firebasestorage.app',
-   messagingSenderId: '73650175390',
-   appId: '1:73650175390:web:173ba0557dd80717f6aa8f'
+   apiKey: 'AIzaSyByzmwU3fqNqQgE-sgGnZ0KMzR_q8un_NU',
+   authDomain: 'vazhi-29b60.firebaseapp.com',
+   projectId: 'vazhi-29b60',
+   storageBucket: 'vazhi-29b60.firebasestorage.app',
+   messagingSenderId: '975090474273',
+   appId: '1:975090474273:web:8b62db66e175024a203260'
 }
 
 const firebaseApp = initializeApp(fireBaseConfig)

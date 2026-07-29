@@ -1,6 +1,8 @@
 import useGetFCMTokenLogics from '@/context/notifications/hooks/useGetFCMTokenLogics'
 import type { ExtentedNotificationPermission } from '@/context/notifications/typeGeneric/extendedNotificationPermission'
-import { useEffect, useRef, useState } from 'react'
+import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router'
 
 const useGetNotificationPermission = () => {
   // ref
@@ -12,6 +14,7 @@ const useGetNotificationPermission = () => {
 
   // hook
   const { getFcmToken } = useGetFCMTokenLogics()
+  const { pathname } = useLocation()
 
   // cb
   const closePrompt = () => setshowNotificationPrompt(false)
@@ -32,7 +35,7 @@ const useGetNotificationPermission = () => {
       })
   }
 
-  const subscribeNotification = () => {
+  const subscribeNotification = useCallback(() => {
     if (!('Notification' in window)) {
       setNotificationState('not-supported')
       return
@@ -54,14 +57,16 @@ const useGetNotificationPermission = () => {
     if (currentPermission === 'default') {
       openPrompt()
     }
-  }
+  }, [getFcmToken])
 
   useEffect(() => {
-    if (hasFetchedRef.current) return
+    const dontSubscribeNotification = [PATH_NAMES.HOME, PATH_NAMES.LOGIN].includes(pathname) || hasFetchedRef.current
+    if (dontSubscribeNotification) return
     hasFetchedRef.current = true
-    subscribeNotification()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    queueMicrotask(() => {
+      subscribeNotification()
+    })
+  }, [pathname, subscribeNotification])
 
   return { notificationState, closePrompt, openPrompt, show: showNotificationPrompt, getNotificationPermission }
 }

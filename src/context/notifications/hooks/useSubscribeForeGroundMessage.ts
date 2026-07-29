@@ -17,8 +17,7 @@ const useSubscribeForeGroundMessage = (cb: () => void) => {
       alert(JSON.stringify(payload))
     })
     return unsubscribe
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [cb])
 }
 
 export default useSubscribeForeGroundMessage

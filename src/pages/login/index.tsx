@@ -1,22 +1,10 @@
-// import { useEffect } from 'react'
-
 import { AUTH_API_ROUTE, GET_TKN_FRM_CODE_API_ROUTE } from '@/commonConst/apiRoutes'
-// import { errHndlrCb } from '@/commonHlpr/error'
-// import { getFcmTkn } from '@/commonHlpr/fcm'
 import { connectServerPost } from '@/commonHlpr/fetch'
-// import { LANGUAGE } from '@/language'
 import { Button } from '@mui/material'
 import { useGoogleLogin } from '@react-oauth/google'
 import { useMutation } from '@tanstack/react-query'
 
 const Login = () => {
-  // effect
-  // useEffect(() => {
-  //   getFcmTkn()
-  //     .then((t) => console.log(t))
-  //     .catch((e) => errHndlrCb(e, LANGUAGE.fcmTokenFetch))
-  // }, [])
-
   const login = useGoogleLogin({
     flow: 'auth-code',
     onSuccess: (tR) => mutation.mutate({ code: tR.code })
