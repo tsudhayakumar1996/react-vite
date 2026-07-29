@@ -10,20 +10,10 @@ const useGetFCMTokenLogics = () => {
 
     const registration = await navigator.serviceWorker.ready
 
-    // if (registration.active) return registration
-
-    // return new Promise<ServiceWorkerRegistration>((resolve) => {
-    //   const worker = registration.installing || registration.waiting
-    //   worker?.addEventListener('statechange', () => {
-    //     if (worker.state === 'activated') resolve(registration)
-    //   })
-    // })
-
     return registration
   }
 
   const getFcmToken = async () => {
-    alert('hello')
     const registration = await getFCMServiceWorkerRegistration()
 
     const token = await getToken(messaging, {

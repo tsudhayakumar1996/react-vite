@@ -1,1 +1,1 @@
-export type ExtentedNotificationPermission = NotificationPermission | 'not-supported' | 'unknown-error' | 'checking'
+export type ExtentedNotificationPermission = NotificationPermission | 'not-supported' | 'unknown-error'

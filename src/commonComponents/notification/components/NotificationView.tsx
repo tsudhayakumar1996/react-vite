@@ -1,3 +1,4 @@
+import AllowNotificationUI from '@/commonComponents/notification/components/AllowNotificationUI'
 import EnableNotificationInfoUI from '@/commonComponents/notification/components/EnableNotificationInfoUI'
 import type { ExtentedNotificationPermission } from '@/context/notifications/typeGeneric/extendedNotificationPermission'
 import CloseIcon from '@mui/icons-material/Close'
@@ -10,7 +11,6 @@ const NotificationView = ({
   closeCb: () => void
   permission: ExtentedNotificationPermission
 }) => {
-  console.log(permission, 'permission')
   return (
     <>
       <Box>
@@ -20,7 +20,8 @@ const NotificationView = ({
         </IconButton>
       </Box>
       <Box>
-        {['denied', 'default'].includes(permission) && <EnableNotificationInfoUI />}
+        {permission === 'default' && <AllowNotificationUI />}
+        {permission === 'denied' && <EnableNotificationInfoUI />}
         {permission === 'granted' && <Typography variant="h6">Notification List</Typography>}
         {permission === 'unknown-error' && <Typography variant="h6">Please contact tech support</Typography>}
         {permission === 'not-supported' && (

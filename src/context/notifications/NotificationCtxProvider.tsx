@@ -8,12 +8,7 @@ import { NotificationCtx } from '@/context/notifications/notificationCtx'
 
 const NotificationCtxProvider = ({ children }: ChildProp) => {
   // hook
-  const {
-    notificationState,
-    // show,
-    // closePrompt,
-    getNotificationPermission
-  } = useGetNotificationPermission()
+  const { notificationState, getNotificationPermission } = useGetNotificationPermission()
   useCatchSWNotificationClickFallBack()
   useSubscribeBackGroundMessage(() => {})
   useSubscribeForeGroundMessage(() => {})
@@ -30,11 +25,6 @@ const NotificationCtxProvider = ({ children }: ChildProp) => {
       }}
     >
       {children}
-      {/* <RqstPrmsnMdl
-        open={show}
-        closePrompt={closePrompt}
-        actnCb={getNotificationPermission}
-      /> */}
     </NotificationCtx.Provider>
   )
 }

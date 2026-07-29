@@ -12,7 +12,7 @@ const useSubscribeBackGroundMessage = (cb: () => void) => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data?.type === FCM_BACKGROUND_MESSAGE) {
         cb()
-        alert(JSON.stringify(event.data.payload))
+        alert(JSON.stringify(event.data.payload) + '$$$$$$$$$$$$$$ from background...')
       }
     }
 

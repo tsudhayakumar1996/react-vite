@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 
-const RqstPrmsnMdlBdy = ({ actnCb }: { actnCb: () => void }) => {
+const PermsnAllwUI = ({ actnCb }: { actnCb: () => void }) => {
   return (
     <Box>
       <Typography variant="h6">Click Allow to continue.</Typography>
@@ -9,4 +9,4 @@ const RqstPrmsnMdlBdy = ({ actnCb }: { actnCb: () => void }) => {
   )
 }
 
-export default RqstPrmsnMdlBdy
+export default PermsnAllwUI
