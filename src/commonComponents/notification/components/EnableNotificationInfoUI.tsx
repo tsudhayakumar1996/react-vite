@@ -17,12 +17,11 @@ const EnableNotificationInfoUI = () => {
     return (
       <Box>
         <span>Click the </span>
-        <InfoOutlinedIcon sx={{ color: (t) => t.palette.info.main }} />{' '}
-        <span>icon and toggle the Notifications on </span>
+        <InfoOutlinedIcon /> <span>icon and toggle the Notifications on </span>
         <ToggleOnOutlinedIcon />
         <hr />
         <span>Or go to site settings </span>
-        <SettingsIcon sx={{ color: (t) => t.palette.info.main }} />
+        <SettingsIcon />
         <span> and enable the </span>
         <br />
         <span>Notifications</span>

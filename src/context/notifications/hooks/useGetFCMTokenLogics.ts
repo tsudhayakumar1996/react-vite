@@ -23,6 +23,7 @@ const useGetFCMTokenLogics = () => {
   }
 
   const getFcmToken = async () => {
+    alert('hello')
     const registration = await getFCMServiceWorkerRegistration()
 
     const token = await getToken(messaging, {

@@ -10,6 +10,7 @@ const NotificationView = ({
   closeCb: () => void
   permission: ExtentedNotificationPermission
 }) => {
+  console.log(permission, 'permission')
   return (
     <>
       <Box>
@@ -19,7 +20,6 @@ const NotificationView = ({
         </IconButton>
       </Box>
       <Box>
-        notification denied
         {['denied', 'default'].includes(permission) && <EnableNotificationInfoUI />}
         {permission === 'granted' && <Typography variant="h6">Notification List</Typography>}
         {permission === 'unknown-error' && <Typography variant="h6">Please contact tech support</Typography>}
