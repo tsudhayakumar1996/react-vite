@@ -14,7 +14,7 @@ const useSubscribeForeGroundMessage = (cb: () => void) => {
   useEffect(() => {
     const unsubscribe = subscribeToForegroundMessages((payload) => {
       cb()
-      alert(JSON.stringify(payload) + '****** from foreground...')
+      alert(JSON.stringify(payload))
     })
     return unsubscribe
   }, [cb])
