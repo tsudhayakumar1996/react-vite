@@ -12,8 +12,8 @@ const NotificationView = ({
   permission: ExtentedNotificationPermission
 }) => {
   return (
-    <>
-      <Box>
+    <Box sx={{ width: 400, p: 2, borderRadius: 16 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6">Notifications</Typography>
         <IconButton onClick={closeCb}>
           <CloseIcon />
@@ -28,7 +28,7 @@ const NotificationView = ({
           <Typography variant="h6">Use different browser to get the notifications</Typography>
         )}
       </Box>
-    </>
+    </Box>
   )
 }
 

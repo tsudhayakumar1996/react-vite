@@ -1,8 +1,7 @@
 import Notification from '@/commonComponents/notification'
 import { PwaUpdatePrompt } from '@/commonComponents/pwa/PwaUpdatePrompt'
 import useGetHeaderLogics from '@/providers/reactRouter/components/layout/hooks/useGetHeaderLogics'
-import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined'
-import { AppBar, Box, IconButton } from '@mui/material'
+import { AppBar, Box } from '@mui/material'
 
 export const headerHeight = 56
 
@@ -19,15 +18,9 @@ const Header = () => {
         elevation={0}
         sx={{ p: 1, height: headerHeight }}
       >
-        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <IconButton>
-            <WidgetsOutlinedIcon />
-          </IconButton>
-          {/* <IconButton>
-            <NotificationsNoneOutlinedIcon />
-          </IconButton> */}
-          <Notification />
+        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'end', alignItems: 'center' }}>
           <PwaUpdatePrompt />
+          <Notification />
         </Box>
       </AppBar>
     </Box>

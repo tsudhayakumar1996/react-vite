@@ -1,16 +1,20 @@
 import { useNotificationStateCtx } from '@/context/notifications/useNotificationCtx'
 
+import useGetNotificationLogics from '@/commonComponents/notification/hooks/useGetNotificationLogics'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive'
 import NotificationsOffOutlinedIcon from '@mui/icons-material/NotificationsOffOutlined'
-import { Badge, IconButton } from '@mui/material'
+import { Badge, IconButton, Menu } from '@mui/material'
 import NotificationView from './components/NotificationView'
 
 const Notification = () => {
+  // ctx
   const {
     notificationState: { permission }
   } = useNotificationStateCtx()
-  const hasNewNotification = true
+
+  // hooks
+  const { hasNewNotification, anchorEl, handleClick, handleClose, open } = useGetNotificationLogics()
 
   return (
     <>
@@ -18,7 +22,7 @@ const Notification = () => {
         size="large"
         aria-label="show the notifications"
         color="inherit"
-        onClick={() => {}}
+        onClick={anchorEl ? handleClose : handleClick}
       >
         <Badge
           badgeContent={10}
@@ -35,10 +39,17 @@ const Notification = () => {
           )}
         </Badge>
       </IconButton>
-      <NotificationView
-        closeCb={() => {}}
-        permission={permission}
-      />
+      {/* notification list */}
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+      >
+        <NotificationView
+          closeCb={handleClose}
+          permission={permission}
+        />
+      </Menu>
     </>
   )
 }
