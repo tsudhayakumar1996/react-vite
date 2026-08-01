@@ -1,25 +1,23 @@
-import { Button, Typography } from '@mui/material'
-import { useQuery } from '@tanstack/react-query'
-import { useNavigate } from 'react-router'
+import { HOME_API_ROUTE } from '@/commonConst/apiRoutes'
+import { connectServerGet } from '@/commonHlpr/fetch'
+import { useEffect } from 'react'
 
 const Home = () => {
-  // hook
-  const { data } = useQuery({
-    queryKey: ['InitialData'],
-    queryFn: () => ({
-      name: 'udhay'
-    })
-  })
+  // effect
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await connectServerGet(HOME_API_ROUTE)
+        console.log(res, 'response....')
+        return res
+      } catch (error) {
+        console.log(error, 'error')
+      }
+    }
+    fetchData()
+  }, [])
 
-  // hook
-  const navigate = useNavigate()
-
-  return (
-    <>
-      <Typography variant="h4">{data && data.name} version 6</Typography>
-      <Button onClick={() => navigate('/login')}>Login</Button>
-    </>
-  )
+  return <div>Home</div>
 }
 
 export default Home
