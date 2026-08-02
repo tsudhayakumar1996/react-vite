@@ -1,13 +1,14 @@
 import Notification from '@/commonComponents/notification'
 import { PwaUpdatePrompt } from '@/commonComponents/pwa/PwaUpdatePrompt'
 import useGetHeaderLogics from '@/providers/reactRouter/components/layout/hooks/useGetHeaderLogics'
-import { AppBar, Box } from '@mui/material'
+import LogoutIcon from '@mui/icons-material/Logout'
+import { AppBar, Box, IconButton } from '@mui/material'
 
 export const headerHeight = 56
 
 const Header = () => {
   // hook
-  const { isLgnPg } = useGetHeaderLogics()
+  const { isLgnPg, logoutCb } = useGetHeaderLogics()
 
   if (isLgnPg) return <></>
 
@@ -20,7 +21,17 @@ const Header = () => {
       >
         <Box sx={{ width: '100%', display: 'flex', justifyContent: 'end', alignItems: 'center' }}>
           <PwaUpdatePrompt />
-          <Notification />
+          <Box>
+            <IconButton
+              size="large"
+              aria-label="show the notifications"
+              color="inherit"
+              onClick={logoutCb}
+            >
+              <LogoutIcon />
+            </IconButton>
+            <Notification />
+          </Box>
         </Box>
       </AppBar>
     </Box>

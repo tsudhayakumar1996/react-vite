@@ -1,3 +1,6 @@
+import { UPDATE_FCM_TOKEN } from '@/commonConst/apiRoutes'
+import { UNABLE_FETCH_FCM } from '@/commonConst/clientInfoMsgs'
+import { connectServerPost } from '@/commonHlpr/fetch'
 import { messaging } from '@/firebase/config'
 import { getToken } from 'firebase/messaging'
 
@@ -21,13 +24,13 @@ const useGetFCMTokenLogics = () => {
       serviceWorkerRegistration: registration
     })
 
-    if (!token) throw new Error('Unable to fetch fcm token')
+    if (!token) throw new Error(UNABLE_FETCH_FCM)
     manageFcmToken(token)
     return token
   }
 
-  const manageFcmToken = (token: string) => {
-    console.log(token, 'fcm token is here to check')
+  const manageFcmToken = async (fcmTkn: string) => {
+    await connectServerPost(UPDATE_FCM_TOKEN, { fcmTkn, pltFrm: 'web' })
   }
 
   return { getFcmToken }

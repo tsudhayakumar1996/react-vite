@@ -7,5 +7,6 @@ export const PATH_NAMES = {
   LANDING: '/',
   LOGIN: '/login',
   PRIVATE_ROUTE,
-  PROFILE: PRIVATE_ROUTE + '/profile'
+  PROFILE: PRIVATE_ROUTE + '/profile',
+  LOGOUT: '/logout'
 }

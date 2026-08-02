@@ -1,4 +1,4 @@
-import { AUTH_API_ROUTE, GET_TKN_FRM_CODE_API_ROUTE } from '@/commonConst/apiRoutes'
+import { GET_TKN_FRM_CODE_API_ROUTE } from '@/commonConst/apiRoutes'
 import { connectServerPost } from '@/commonHlpr/fetch'
 import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
 import { useGoogleLogin } from '@react-oauth/google'
@@ -17,8 +17,7 @@ const useGetLoginLogics = () => {
 
   // query
   const mutation = useMutation({
-    mutationFn: (payload: { code: string }) =>
-      connectServerPost(AUTH_API_ROUTE + GET_TKN_FRM_CODE_API_ROUTE, { code: payload.code }),
+    mutationFn: (payload: { code: string }) => connectServerPost(GET_TKN_FRM_CODE_API_ROUTE, { code: payload.code }),
     onSuccess: (r) => {
       if (r?.expireOn) navigate(PATH_NAMES.PRIVATE_ROUTE, { replace: true })
     }
