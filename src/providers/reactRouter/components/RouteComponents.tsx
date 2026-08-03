@@ -13,3 +13,4 @@ export const Layout = lazy(() => import('@/providers/reactRouter/components/layo
 
 // wrapper
 export const MeWrapper = lazy(() => import('@/providers/reactRouter/components/meWrapper'))
+export const PlsWait = lazy(() => import('@/pages/plsWait/index'))

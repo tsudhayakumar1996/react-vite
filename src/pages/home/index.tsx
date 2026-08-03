@@ -14,7 +14,7 @@ const Home = () => {
         console.log(error, 'error')
       }
     }
-    fetchData()
+    setInterval(() => fetchData(), 1000)
   }, [])
 
   return <div>Home</div>

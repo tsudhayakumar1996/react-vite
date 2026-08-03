@@ -9,6 +9,7 @@ import {
   Login,
   Logout,
   MeWrapper,
+  PlsWait,
   Profile
 } from '@/providers/reactRouter/components/RouteComponents'
 import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />
+      },
+      {
+        path: PATH_NAMES.HIT_LIMIT,
+        element: <PlsWait />
       },
       {
         path: PATH_NAMES.LOGIN,
