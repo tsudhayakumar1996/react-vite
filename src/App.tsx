@@ -1,19 +1,25 @@
-import OAuthProvider from '@/providers/oAuth'
-import { ReactQueryClientProvider } from '@/providers/reactQuery'
-import { ReactRouterProvider } from '@/providers/reactRouter'
-import SnackBarProvider from '@/providers/snackbar'
-import { MuiThemeProvider } from '@/providers/theme/mui'
+import EmtySuspnsFallBack from '@/commonComponents/loader/EmtySuspnsFallBack'
+import { lazy } from 'react'
+
+// pages
+const RctQryPrvdr = lazy(() => import('@/providers/reactQuery/index'))
+const MuiThmePrvdr = lazy(() => import('@/providers/theme/mui'))
+const SnckBarPrvdr = lazy(() => import('@/providers/snackbar'))
+const OAuthPrvdr = lazy(() => import('@/providers/oAuth'))
+const ReactRouterPrvdr = lazy(() => import('@/providers/reactRouter'))
 
 const App = () => {
   return (
-    <ReactQueryClientProvider>
-      <MuiThemeProvider>
-        <OAuthProvider>
-          <ReactRouterProvider />
-        </OAuthProvider>
-        <SnackBarProvider />
-      </MuiThemeProvider>
-    </ReactQueryClientProvider>
+    <EmtySuspnsFallBack>
+      <RctQryPrvdr>
+        <MuiThmePrvdr>
+          <OAuthPrvdr>
+            <ReactRouterPrvdr />
+          </OAuthPrvdr>
+          <SnckBarPrvdr />
+        </MuiThmePrvdr>
+      </RctQryPrvdr>
+    </EmtySuspnsFallBack>
   )
 }
 

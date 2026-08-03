@@ -14,6 +14,8 @@ if (import.meta.env.VITE_BUILD_MODE === 'DEVELOPMENT') {
   window.__TANSTACK_QUERY_CLIENT__ = queryClient
 }
 
-export const ReactQueryClientProvider = ({ children }: ChildProp) => {
+const ReactQueryClientProvider = ({ children }: ChildProp) => {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 }
+
+export default ReactQueryClientProvider
