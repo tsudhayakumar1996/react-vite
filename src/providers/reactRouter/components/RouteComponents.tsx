@@ -7,3 +7,9 @@ export const ErrorBoundary = lazy(() => import('@/providers/reactRouter/componen
 export const Profile = lazy(() => import('@/pages/profile/index'))
 export const Home = lazy(() => import('@/pages/home/index'))
 export const Logout = lazy(() => import('@/pages/logout/index'))
+
+// layout
+export const Layout = lazy(() => import('@/providers/reactRouter/components/layout'))
+
+// wrapper
+export const MeWrapper = lazy(() => import('@/providers/reactRouter/components/meWrapper'))

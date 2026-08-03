@@ -22,14 +22,13 @@ export const connectServerPost = <T>(endPoint: string, payload: T) =>
       throw e
     })
 
-const errorHndlr = async (r: Response) => {
+export const errorHndlr = async (r: Response) => {
   const res = await r.json()
   if (r.ok) return res
   else throw new Error(res.error)
 }
 
 const logoutCb = (e: Error) => {
-  console.log(e.message, 'e on logoubt cb')
   if (e.message === NOT_AUTHENTICATED_FROM_API) window.location.replace(PATH_NAMES.LOGOUT)
   return
 }

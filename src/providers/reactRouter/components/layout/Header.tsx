@@ -8,9 +8,7 @@ export const headerHeight = 56
 
 const Header = () => {
   // hook
-  const { isLgnPg, logoutCb } = useGetHeaderLogics()
-
-  if (isLgnPg) return <></>
+  const { logoutCb } = useGetHeaderLogics()
 
   return (
     <Box sx={{ mt: headerHeight + 'px' }}>

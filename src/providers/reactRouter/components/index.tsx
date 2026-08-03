@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router'
 
-import Layout from '@/providers/reactRouter/components/layout'
-
 // pages
 import {
   ErrorBoundary,
   Home,
   Landing,
+  Layout,
   Login,
   Logout,
+  MeWrapper,
   Profile
 } from '@/providers/reactRouter/components/RouteComponents'
 import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
@@ -16,6 +16,7 @@ import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
 export const router = createBrowserRouter([
   {
     path: PATH_NAMES.LANDING,
+    element: <MeWrapper />,
     errorElement: <ErrorBoundary />,
     children: [
       {
