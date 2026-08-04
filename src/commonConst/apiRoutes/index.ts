@@ -7,3 +7,6 @@ export const LOGOUT_API_ROUTE = AUTH_API_ROUTE + '/logout'
 
 // fcm
 export const UPDATE_FCM_TOKEN = '/fcm/updteTkns'
+
+// me
+export const GET_ME = '/me/get'

@@ -8,6 +8,6 @@ export const PATH_NAMES = {
   LOGIN: '/login',
   PRIVATE_ROUTE,
   LOGOUT: '/logout',
-  PROFILE: PRIVATE_ROUTE + '/profile',
-  HIT_LIMIT: PRIVATE_ROUTE + '/plswait'
+  HIT_LIMIT: '/plswait',
+  PROFILE: PRIVATE_ROUTE + '/profile'
 }

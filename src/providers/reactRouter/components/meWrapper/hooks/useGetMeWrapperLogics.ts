@@ -1,26 +1,10 @@
-import { errorHndlr } from '@/commonHlpr/fetch'
-import { useQuery } from '@tanstack/react-query'
-
-export const ME_QUERY_KEY = 'me'
+import useGetMe from '@/providers/reactRouter/components/meWrapper/queryHooks/useGetMe'
 
 const useGetMeWrapperLogics = () => {
-  // cb
-  const fetchMe = async () => {
-    fetch(import.meta.env.VITE_SERVER_END_POINT + '/me', { credentials: 'include' })
-      .then((r) => errorHndlr(r))
-      .catch((e) => {
-        throw e
-      })
-  }
-
   // qry
-  const { data, isLoading, isError } = useQuery({
-    queryKey: [ME_QUERY_KEY],
-    queryFn: fetchMe,
-    staleTime: Infinity
-  })
+  const { data, isLoading, isError, error } = useGetMe()
 
-  return { data, isLoading, isError }
+  return { data, isLoading, isError, error }
 }
 
 export default useGetMeWrapperLogics

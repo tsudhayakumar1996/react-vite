@@ -17,7 +17,6 @@ import { PATH_NAMES } from '@/providers/reactRouter/const/pathNames'
 export const router = createBrowserRouter([
   {
     path: PATH_NAMES.LANDING,
-    element: <MeWrapper />,
     errorElement: <ErrorBoundary />,
     children: [
       {
@@ -38,7 +37,11 @@ export const router = createBrowserRouter([
       },
       {
         path: PATH_NAMES.PRIVATE_ROUTE,
-        element: <Layout />,
+        element: (
+          <MeWrapper>
+            <Layout />
+          </MeWrapper>
+        ),
         children: [
           {
             index: true,
