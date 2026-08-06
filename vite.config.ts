@@ -8,19 +8,19 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: 'autoUpdate',
       devOptions: {
         enabled: true,
-        type: 'module'
+        type: 'module',
+        navigateFallback: 'index.html'
       },
       srcDir: 'src',
       filename: 'sw.js',
       strategies: 'injectManifest',
       manifest: {
-        name: 'React',
-        short_name: 'vite',
-        description: 'Sample React App',
-        theme_color: '#7F00FF',
-        background_color: '#7F00FF',
+        name: 'Vazhi',
+        short_name: 'Vazhi',
+        description: 'Building nature',
         display: 'standalone',
         start_url: '/login',
         scope: '/',

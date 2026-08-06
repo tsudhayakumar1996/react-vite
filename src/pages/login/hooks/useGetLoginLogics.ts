@@ -22,7 +22,8 @@ const useGetLoginLogics = () => {
     mutationFn: (payload: { code: string }) => connectServerPost(GET_TKN_FRM_CODE_API_ROUTE, { code: payload.code }),
     onSuccess: (r) => {
       if (r?.data) navigate(PATH_NAMES.PRIVATE_ROUTE, { replace: true })
-    }
+    },
+    onError: (e) => alert(e.message)
   })
 
   const { data } = useGetMe()

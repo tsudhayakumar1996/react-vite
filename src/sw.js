@@ -1,6 +1,7 @@
-import { initializeApp } from 'firebase/app'
-import { getMessaging, onBackgroundMessage } from 'firebase/messaging/sw'
-import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
+import { initializeApp } from 'firebase/app';
+import { getMessaging, onBackgroundMessage } from 'firebase/messaging/sw';
+import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute } from 'workbox-precaching';
+import { NavigationRoute, registerRoute } from 'workbox-routing';
 
 precacheAndRoute(self.__WB_MANIFEST)
 cleanupOutdatedCaches()
@@ -15,18 +16,22 @@ const fireBaseConfig = {
    appId: '1:975090474273:web:8b62db66e175024a203260'
 }
 
+const handler = createHandlerBoundToURL('/index.html');
+const navigationRoute = new NavigationRoute(handler, {
+  denylist: [/^\/api/], 
+});
+
+registerRoute(navigationRoute);
+
 const firebaseApp = initializeApp(fireBaseConfig)
 
 const messaging = getMessaging(firebaseApp)
 
 onBackgroundMessage(messaging, (payload) => { })
 
-// wait for the app to explicitly tell us to activate the new SW
-self.addEventListener('message', (event) => {
-   if (event.data?.type === 'SKIP_WAITING') {
-      self.skipWaiting()
-   }
-})
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+});
 
 self.addEventListener('activate', () => {
    self.clients.claim()
